@@ -1,0 +1,34 @@
+#!/bin/bash
+
+#Released on 20180727 by Simon at bafelem@gmail.com
+# add the PATH for the command.
+
+if ! [ -d ~/Documents ];then
+	echo "The Documetns folder doesn't exist and will make new foler under HOME, please put the build files in."
+	mkdir ~/Documents
+	exit 0
+elif ! [ -d ~/Documents/build ];then
+	cd ~/Documents/
+	test_path=`pwd`
+	echo "The Build folder doesn't exist, please copy to the $test_path "
+	exit 0
+else
+	cd ~/Documents/build/code/
+	cur_path=`pwd`
+	cd ~
+	test -e .bash_profile && echo "# added for the draft tools commands" >> .bash_profile && echo -e "export PATH=\"${cur_path}:$PATH\"" >> .bash_profile
+fi
+
+cd ~
+if ! [ -e .bash_profile ];then
+	cd ~/Documents/build/code/
+	currut_path=`pwd`
+	touch .bash_profile
+	cd ~
+	echo -e "# added for the draft tool commands" >> .bash_profile
+	echo -e "export PATH=\"${currut_path}:$PATH\"" >> .bash_profile
+fi
+
+echo "Finished, Enjoy!"
+
+exit 0

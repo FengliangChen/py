@@ -1,0 +1,12 @@
+#!/bin/bash
+
+#Rleased on 20180717 by Simon at bafelem@gmail.com
+#install Miniconda3
+# Install the miniconda, mainly for the modules support for Pytnon.
+
+
+cd ~/Desktop
+curl -O https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-MacOSX-x86_64.sh
+chmod +x Miniconda3-latest-MacOSX-x86_64.sh
+./Miniconda3-latest-MacOSX-x86_64.sh
+rm Miniconda3-latest-MacOSX-x86_64.sh

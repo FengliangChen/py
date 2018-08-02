@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#Rleased on 20180717 by Simon at bafelem@gmail.com
+#install Miniconda3
+# Install the modules.
+
+
+pip install openpyxl
+
+pip install xlrd
+
+echo "Completed the modules!"
+
+exit 0
