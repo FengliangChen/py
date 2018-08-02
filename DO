@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#date 20180709
+#Funtion make a new job folder.
+
+time_compare(){
+	d=`date '+%H'`
+	if [ $d -lt 7 ]; then
+		echo `date -v-1d +%m%d`
+	else
+		echo `date '+%m%d'`
+	fi
+}
+clear
+k=$(time_compare)
+
+job1=$1
+test -z $1 && read -p "Please input your job number:" job1
+test -d ~/Documents/build/draft_artwork_folder/nn做稿 && rm -r ~/Documents/build/draft_artwork_folder/nn做稿
+cp -r ~/Documents/build/draft_artwork_folder/n做稿 ~/Documents/build/draft_artwork_folder/nn做稿
+
+mv ~/Documents/build/draft_artwork_folder/nn做稿 ~/Documents/build/draft_artwork_folder/${job1}
+cd ~/Documents/build/draft_artwork_folder/${job1}
+d="_DetailList_W"
+mv '_DetailList_W.xlsx' ${job1}${d}.xlsx
+mkdir ./"1 intake sheet & order"/${k}
+mkdir ./"2 raw client files"/${k}
+cp -r ~/Documents/build/draft_artwork_folder/${job1} ~/Desktop/$job1' 做稿'
+rm -r ~/Documents/build/draft_artwork_folder/${job1}
+echo "Completed, Enjoy!"
+exit 0

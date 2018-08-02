@@ -1,0 +1,14 @@
+#!/bin/bash
+
+#date 20180731
+#By Simon Chen at bafelem@gmail.com
+# Delete the files "a.xls" "a.txt" "draft_art_work.txt"
+
+cd ~/Desktop
+
+test -e a.xls && rm a.xls && echo "\"a.xls\" has been deleted!"
+test -e a.txt && rm a.txt && echo "\"a.txt\" has been deleted!"
+test -e draft_art_work.txt && rm draft_art_work.txt && echo "\"draft_art_work.txt\" has been deleted!"
+test -e a.xlsx && rm a.xlsx && echo "\"a.xlsx\" has been deleted!"
+echo "Completed!"
+exit 0

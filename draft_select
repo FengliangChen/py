@@ -1,0 +1,26 @@
+#!/bin/bash
+
+#date 20180711
+#Funtion make a new job folder.Using the python suppoert to creat the artwork.
+#By Simon Chen at bafelem@gmail.com
+
+
+echo "Start to process draft artwork texts, Please wait."
+
+if ! [ -e ~/Desktop/a.txt ]; then
+echo "Please ensure a.txt on desktop."
+exit 0
+fi
+
+cd ~/Desktop
+path1=$(pwd)
+
+if [ -e ~/Desktop/a.xls ]; then
+	xls.py $path1 xls
+elif [ -e ~/Desktop/a.xlsx ]; then
+	xls.py $path1 xlsx
+else
+echo "Please ensure speadsheets on desktop and with the correct name."
+fi
+
+exit 0
