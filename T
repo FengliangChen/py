@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Color
+red='\033[0;31m'
+green='\033[0;32m'
+yellow='\033[0;33m'
+plain='\033[0m'
+
+job=$1
+test -z $1 && read -p "Please enter job code, the end 4 digits only:" job
+
+draft_folder(){
+path1="/Volumes/datavolumn_bmkserver_Pub/新做稿/未开始/"
+path2="/Volumes/datavolumn_bmkserver_Pub/新做稿/进行中/"
+
+cd ${path1}?18${job}* 2> /dev/null #the year 2018, need to update when the next year.
+p1=$?
+cd ${path2}?18${job}* 2> /dev/null
+p2=$?
+
+if [ $p1 == 0 ]; then
+	# cd ${path1}?18${job}*
+	open "$(pwd)"
+elif [ $p2 == 0 ]; then
+	# cd ${path2}?18${job}*
+	open "$(pwd)"
+else
+	echo -e "${red}Can't locate the files on draft folder.${plain}"
+fi
+}
+
+draft_folder
+
+exit 0
