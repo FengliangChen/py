@@ -117,7 +117,7 @@ pub_today
 }
 
 open_folder(){
-	open $current_folder_path
+	open "$current_folder_path"
 }
 
 drat_text(){
