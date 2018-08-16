@@ -98,11 +98,11 @@ p2=$?
 
 if [ $p1 == 0 ]; then
 	cd ${pathtoday}?${job}*
-	pwd
+	pwd && current_folder_path=$(pwd)
 	get_txt
 elif [ $p2 == 0 ]; then
 	cd ${pathyesterday}?${job}*
-	pwd
+	pwd && current_folder_path=$(pwd)
 	get_txt
 else
 echo -e "${red}Can't locate the folder on today and yesterday.${plain}"
@@ -116,11 +116,20 @@ draft_folder
 pub_today
 }
 
+open_folder(){
+	open $current_folder_path
+}
+
 drat_text(){
 read -p "'Y' to process draft artwork texts and other to stop:" option
 case $option in
 'y' | 'Y')
 	 draft_select
+	 open_folder
+	;;
+*)
+	end_pattern
+	exit
 	;;
 esac
 }
