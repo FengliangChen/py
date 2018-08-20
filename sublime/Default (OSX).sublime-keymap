@@ -1,0 +1,5 @@
+[
+	{ "keys": ["ctrl+shift+l"], "command": "replacer" },
+	{ "keys": ["ctrl+shift+p"], "command": "mygod" },
+	{ "keys": ["ctrl+shift+h"], "command": "annotation_head" }
+]
